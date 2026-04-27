@@ -1,0 +1,170 @@
+/* 全域設定 */
+body {
+  margin: 0;
+  font-family: 'Consolas', 'Courier New', monospace; /* 改用更有程式感的字體 */
+  background: radial-gradient(circle at center, #111827 0%, #000000 100%);
+  color: #e2e8f0;
+  text-align: center;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 標題與連結 */
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); /* 標題發光 */
+}
+
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #7dd3fc;
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.8);
+}
+
+/* Hero 區塊 */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/></svg>'); /* 點陣背景 */
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #94a3b8;
+  margin-bottom: 40px;
+  min-height: 30px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s infinite;
+  color: #38bdf8;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 按鈕設計：賽博龐克發光風 */
+.buttons a {
+  margin: 10px;
+  padding: 12px 30px;
+  background: transparent;
+  color: #38bdf8;
+  font-weight: bold;
+  border: 2px solid #38bdf8;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons a:hover {
+  background: #38bdf8;
+  color: #000;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Grid 與毛玻璃卡片設計 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(10px); /* 毛玻璃特效 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(56, 189, 248, 0.05);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #f8fafc;
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+
+.card p {
+  color: #cbd5e1;
+}
+
+/* 技術標籤：霓虹外框 */
+.tech-tags {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tags span {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* 滾動漸顯動畫設定 */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RWD 響應式設計 */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.8rem; }
+  .subtitle { font-size: 1.1rem; }
+}
